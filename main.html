@@ -10,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark AI-style blue */
             min-height: 100vh;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -127,74 +127,98 @@
             <h2>About Me</h2>
             <p>
                 "Without data, you're just another person with an opinion." – W. Edwards Deming.<br><br>
-                This belief fuels my work as a passionate Junior Data Scientist, Ai Engineer dedicated to transforming complex data into actionable insights. Through handson, self driven projects, I have built a solid foundation in creating data driven solutions that help businesses predict outcomes, optimize decisions, and stay ahead in a fast moving, data driven market.
+                This belief fuels my work as a passionate Junior Data Scientist, AI Engineer dedicated to transforming complex data into actionable insights. Through hands-on, self-driven projects, I have built a solid foundation in creating data-driven solutions that help businesses predict outcomes, optimize decisions, and stay ahead in a fast moving, data driven market.
                 <br><br>
                 My project portfolio spans a diverse range of areas, including HR analytics dashboards, stock market analysis software, image classifiers, and a personalized recommendation system for a salon that I developed as my first freelance project.
                 <br><br>
                 In the rapidly evolving landscape of AI, I am committed to continuous learning. My current focus is on diving deep into Generative AI and Large Language Models (LLMs), exploring how these cutting-edge technologies can drive innovation and create new opportunities.
                 <br><br>
-                I am actively seeking new challenges and am eager to discuss how I can contribute to your team's success. Let's connect on LinkedIn, or feel free to reach out directly to discuss how I can help your team turn data into a competitive advantage
+                I am actively seeking new challenges and am eager to discuss how I can contribute to your team's success. Let's connect on LinkedIn, or feel free to reach out directly to discuss how I can help your team turn data into a competitive advantage.
             </p>
         </div>
     </section>
 
-   <!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h3>Predicting Titanic Survivors</h3>
-                <p class="project-description">
-                    A supervised machine learning project predicting passenger survival based on demographic and travel features.
-                </p>
-                <div class="project-details">
-                    <h4>Tech Stack:</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>Pandas & Scikit-Learn</li>
-                        <li>Logistic Regression, Random Forest, Gradient Boosting</li>
-                    </ul>
-                    <h4>Main Objective:</h4>
-                    <ul>
-                        <li>Develop a predictive model to determine passenger survival probabilities.</li>
-                        <li>Analyze key survival factors such as age, gender, and class.</li>
-                    </ul>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Predicting Titanic Survivors</h3>
+                    <p class="project-description">
+                        A supervised machine learning project predicting passenger survival based on demographic and travel features.
+                    </p>
+                    <div class="project-details">
+                        <h4>Tech Stack:</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>Pandas & Scikit-Learn</li>
+                            <li>Logistic Regression, Random Forest, Gradient Boosting</li>
+                        </ul>
+                        <h4>Main Objective:</h4>
+                        <ul>
+                            <li>Develop a predictive model to determine passenger survival probabilities.</li>
+                            <li>Analyze key survival factors such as age, gender, and class.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ramiassaf/-Predicting-Titanic-Survivors" target="_blank" class="project-link">GitHub</a>
+                    </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/-Predicting-Titanic-Survivors" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3>Unsupervised Fraud Detection</h3>
-                <p class="project-description">
-                    An anomaly detection project using unsupervised learning to identify fraudulent transactions in imbalanced datasets.
-                </p>
-                <div class="project-details">
-                    <h4>Tech Stack:</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>Scikit-Learn</li>
-                        <li>Isolation Forest, One-Class SVM</li>
-                    </ul>
-                    <h4>Main Objective:</h4>
-                    <ul>
-                        <li>Detect unusual transaction patterns without labeled fraud data.</li>
-                        <li>Improve detection rates in highly imbalanced datasets.</li>
-                    </ul>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Unsupervised Fraud Detection</h3>
+                    <p class="project-description">
+                        An anomaly detection project using unsupervised learning to identify fraudulent transactions in imbalanced datasets.
+                    </p>
+                    <div class="project-details">
+                        <h4>Tech Stack:</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>Scikit-Learn</li>
+                            <li>Isolation Forest, One-Class SVM</li>
+                        </ul>
+                        <h4>Main Objective:</h4>
+                        <ul>
+                            <li>Detect unusual transaction patterns without labeled fraud data.</li>
+                            <li>Improve detection rates in highly imbalanced datasets.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ramiassaf/Unsupervised-Fraud-detection" target="_blank" class="project-link">GitHub</a>
+                    </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/Unsupervised-Fraud-detection" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
 
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>Pneumonia Detection from Chest X-Rays</h3>
+                    <p class="project-description">
+                        A deep learning project that uses Convolutional Neural Networks (CNNs) to classify chest X-ray images as NORMAL or PNEUMONIA.
+                    </p>
+                    <div class="project-details">
+                        <h4>Tech Stack:</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>TensorFlow / Keras</li>
+                            <li>NumPy, Matplotlib, Pillow, Scikit-Learn</li>
+                        </ul>
+                        <h4>Main Objective:</h4>
+                        <ul>
+                            <li>Assist doctors with fast and accurate pneumonia diagnosis.</li>
+                            <li>Evaluate performance using Precision, Recall, F1-score, ROC-AUC.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ramiassaf/CHESTXRAYPROJECT" target="_blank" class="project-link">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
