@@ -26,7 +26,6 @@
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
         .nav-links a:hover { color: #764ba2; }
-
         .hero {
             padding: 120px 0 80px; text-align: center; color: white;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -36,142 +35,116 @@
             border: 5px solid rgba(255, 255, 255, 0.3);
             margin: 0 auto 2rem;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .profile-image img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; margin: auto; }
-
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            display: inline-block; background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white; padding: 15px 40px; text-decoration: none;
+            border-radius: 50px; font-size: 1.2rem; font-weight: bold;
+            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(238, 90, 82, 0.4);
         }
-
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(238, 90, 82, 0.6); }
         .about { padding: 80px 0; background: white; }
-        .about h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; }
-        .about p { max-width: 900px; margin: auto; font-size: 1.1rem; color: #555; }
-
+        .about h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #333; }
+        .about p { max-width: 900px; margin: auto; font-size: 1.1rem; color: #555; line-height: 1.8; }
         .projects { padding: 80px 0; background: #f9f9f9; }
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
+            text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; position: relative;
         }
         .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 3px; background: linear-gradient(45deg, #667eea, #764ba2);
         }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .project-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white; border-radius: 15px; padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;
         }
-
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .project-description { margin-bottom: 1.5rem; color: #666; }
-
-        .project-details h4 { margin-bottom: 0.5rem; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); border-color: #667eea; }
+        .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #333; }
+        .project-description { color: #666; margin-bottom: 1.5rem; line-height: 1.6; }
+        .project-details h4 { margin-bottom: 0.5rem; font-size: 1rem; color: #333; }
         .project-details ul { list-style: none; padding-left: 1rem; }
-        .project-details li::before {
-            content: "•";
-            color: #667eea;
-            margin-right: 6px;
-        }
-
+        .project-details li { color: #666; margin-bottom: 0.3rem; position: relative; }
+        .project-details li::before { content: '•'; color: #667eea; position: absolute; left: -1rem; }
         .project-links { margin-top: 1rem; }
         .project-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            display: inline-block; padding: 10px 20px; background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem;
+            transition: all 0.3s ease; margin-right: 10px;
         }
-
+        .project-link:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); }
         .contact {
             padding: 80px 0;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-            text-align: center;
+            color: white; text-align: center;
         }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+        .contact p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
         .contact-cta {
-            display: inline-block;
-            background: white;
-            color: #764ba2;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            margin: 10px;
-            font-weight: bold;
+            display: inline-block; background: white; color: #764ba2;
+            padding: 15px 40px; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold;
+            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 10px 10px 0;
         }
+        .contact-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
     </style>
 </head>
 <body>
+    <header>
+        <nav class="container">
+            <div class="logo">Rami Assaf</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <nav class="container">
-        <div class="logo">Rami Assaf</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section id="home" class="hero">
-    <div class="container">
-        <div class="profile-image">
-            <img src="mypicture.jpg" alt="Rami Assaf">
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="mypicture.jpg" alt="Rami Assaf">
+                </div>
+                <h1>AI Engineer | ML / DL / GenAI</h1>
+                <p>From data chaos to business clarity</p>
+                <a href="mailto:assaframi99@gmail.com" class="cta-button">📧 Contact Me</a>
+            </div>
         </div>
-        <h1>AI Engineer | ML / DL / GenAI</h1>
-        <p>From data chaos to business clarity</p>
-        <a href="mailto:assaframi99@gmail.com" class="cta-button">📧 Contact Me</a>
-    </div>
-</section>
+    </section>
 
-<section id="about" class="about">
-    <div class="container">
-        <h2>About Me</h2>
-        <p>
-           “Without data, you're just another person with an opinion.” – W. Edwards Deming.
+    <section id="about" class="about">
+       <div class="container">
+    <h2>About Me</h2>
+    <p>
+        “Without data, you're just another person with an opinion.” – W. Edwards Deming.<br><br>
 
-I build end-to-end AI systems that turn messy data into reliable, deployable intelligence.
+        I build end-to-end AI systems that turn messy data into reliable, deployable intelligence.<br><br>
 
-I am an AI Engineer with a strong foundation in Data Science and Machine Learning, focused on solving real business problems through production-ready AI solutions. My work spans the full lifecycle from data and modeling to deployment and iteration with an emphasis on measurable impact.
+        I am an AI Engineer with a strong foundation in Data Science and Machine Learning, focused on solving real business problems through production-ready AI solutions. My work spans the full lifecycle from data and modeling to deployment and iteration with an emphasis on measurable impact.
+        <br><br>
 
-I have built and delivered applied projects including recommendation systems, supervised machine learning models, computer vision applications, and analytics solutions. My first freelance project involved developing a personalized recommendation system for a multi-salon beauty business, improving customer engagement and service discovery.
+        I have built and delivered applied projects including recommendation systems, supervised machine learning models, computer vision applications, and analytics solutions. My first freelance project involved developing a personalized recommendation system for a multi-salon beauty business, improving customer engagement and service discovery.
+        <br><br>
 
-My recent work centers on Generative AI and Large Language Models (LLMs). I have designed and implemented systems using Retrieval-Augmented Generation (RAG), AI agents, document understanding pipelines, and an AI Travel Assistant built with modern LLM frameworks. These projects cover data ingestion, embeddings, orchestration, Docker-based deployment, and cloud infrastructure.
+        My recent work centers on Generative AI and Large Language Models (LLMs). I have designed and implemented systems using Retrieval-Augmented Generation (RAG), AI agents, document understanding pipelines, and an AI Travel Assistant built with modern LLM frameworks. These projects cover data ingestion, embeddings, orchestration, Docker-based deployment, and cloud infrastructure.
+        <br><br>
 
-I continuously deepen my expertise in LLM systems, prompt engineering, vector databases, and scalable AI architectures. I enjoy building practical AI systems and refining them under real-world constraints such as cost, latency, and reliability.
+        I continuously deepen my expertise in LLM systems, prompt engineering, vector databases, and scalable AI architectures. I enjoy building practical AI systems and refining them under real-world constraints such as cost, latency, and reliability.
+        <br><br>
 
-I am open to opportunities in AI Engineering, Machine Learning, and Applied Generative AI, and I’m always interested in collaborating on impactful, real-world projects.
-
-        </p>
-    </div>
+        I am open to opportunities in AI Engineering, Machine Learning, and Applied Generative AI, and I’m always interested in collaborating on impactful, real-world projects.
+    </p>
+</div>
 </section>
 
 <section id="projects" class="projects">
