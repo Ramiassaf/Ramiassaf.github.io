@@ -1,253 +1,702 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rami Assaf - Portfolio</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            min-height: 100vh;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000; padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #764ba2; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #764ba2; }
-        .hero {
-            padding: 120px 0 80px; text-align: center; color: white;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        }
-        .profile-image {
-            width: 200px; height: 200px; border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 2rem;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .cta-button {
-            display: inline-block; background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white; padding: 15px 40px; text-decoration: none;
-            border-radius: 50px; font-size: 1.2rem; font-weight: bold;
-            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(238, 90, 82, 0.4);
-        }
-        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(238, 90, 82, 0.6); }
-        .about { padding: 80px 0; background: white; }
-        .about h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #333; }
-        .about p { max-width: 900px; margin: auto; font-size: 1.1rem; color: #555; line-height: 1.8; }
-        .projects { padding: 80px 0; background: #f9f9f9; }
-        .section-title {
-            text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; position: relative;
-        }
-        .section-title::after {
-            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            width: 80px; height: 3px; background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .project-card {
-            background: white; border-radius: 15px; padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;
-        }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); border-color: #667eea; }
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #333; }
-        .project-description { color: #666; margin-bottom: 1.5rem; line-height: 1.6; }
-        .project-details h4 { margin-bottom: 0.5rem; font-size: 1rem; color: #333; }
-        .project-details ul { list-style: none; padding-left: 1rem; }
-        .project-details li { color: #666; margin-bottom: 0.3rem; position: relative; }
-        .project-details li::before { content: '•'; color: #667eea; position: absolute; left: -1rem; }
-        .project-links { margin-top: 1rem; }
-        .project-link {
-            display: inline-block; padding: 10px 20px; background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem;
-            transition: all 0.3s ease; margin-right: 10px;
-        }
-        .project-link:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); }
-        .contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white; text-align: center;
-        }
-        .contact h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .contact p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
-        .contact-cta {
-            display: inline-block; background: white; color: #764ba2;
-            padding: 15px 40px; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold;
-            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin: 0 10px 10px 0;
-        }
-        .contact-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rami Assaf — AI Engineer</title>
+<meta name="description" content="Rami Assaf — AI Engineer. End-to-end LLM systems, RAG pipelines, and agentic architectures, built and deployed for real users.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a1120;
+  --panel:#101a2e;
+  --panel-2:#0d1526;
+  --line:#1d2b45;
+  --text:#e8eef7;
+  --muted:#93a4bd;
+  --cyan:#54e0c7;
+  --cyan-dim:#2ea892;
+  --amber:#f6b73c;
+  --dark-panel:#101a2e;
+  --dark-line:#1d2b45;
+  --radius:14px;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--ink);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--cyan);color:var(--ink)}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.8rem;
+  letter-spacing:.08em;
+  color:var(--cyan);
+  display:block;
+  margin-bottom:.9rem;
+}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;width:100%;z-index:900;
+  background:rgba(10,17,32,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
+.logo{
+  font-family:var(--font-mono);font-size:1rem;color:var(--text);
+  text-decoration:none;
+}
+.logo b{color:var(--cyan);font-weight:500}
+.nav-links{display:flex;list-style:none;gap:1.8rem;align-items:center}
+.nav-links a{
+  text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;
+  transition:color .2s ease;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--cyan)}
+.nav-cta{
+  border:1px solid var(--cyan-dim);border-radius:8px;padding:.45rem .95rem;
+  color:var(--cyan)!important;
+}
+.nav-cta:hover{background:rgba(84,224,199,.08)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);
+  border-radius:8px;padding:.4rem .7rem;font-family:var(--font-mono);cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 0 80px;position:relative;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(600px 400px at 78% 22%,rgba(84,224,199,.07),transparent 65%),
+    radial-gradient(500px 380px at 12% 85%,rgba(246,183,60,.05),transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center;position:relative}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem,5.2vw,3.9rem);
+  line-height:1.08;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:1.2rem;
+}
+.hero h1 .accent{color:var(--cyan)}
+.hero .tagline{
+  font-family:var(--font-mono);font-size:1rem;color:var(--muted);
+  margin-bottom:1rem;min-height:1.6em;
+}
+.hero .tagline .cursor{
+  display:inline-block;width:9px;height:1.15em;background:var(--cyan);
+  vertical-align:text-bottom;animation:blinkCursor 1s steps(1) infinite;
+}
+@keyframes blinkCursor{50%{opacity:0}}
+.hero .sub{color:var(--muted);max-width:34rem;margin-bottom:2.2rem;font-size:1.05rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.5rem;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:.95rem;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn-primary{background:var(--cyan);color:var(--ink)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(84,224,199,.25)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--cyan-dim);color:var(--cyan)}
+
+.hero-card{
+  background:var(--dark-panel);border:1px solid var(--dark-line);border-radius:var(--radius);
+  padding:1.4rem;font-family:var(--font-mono);font-size:.82rem;color:#93a4bd;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+.hero-card .bar{display:flex;gap:6px;margin-bottom:1rem}
+.hero-card .dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.hero-card .dot:first-child{background:#e0645c}
+.hero-card .dot:nth-child(2){background:var(--amber)}
+.hero-card .dot:nth-child(3){background:#54e0c7}
+.hero-card pre{white-space:pre-wrap;line-height:1.8}
+.hero-card .k{color:#54e0c7}
+.hero-card .s{color:#f6b73c}
+.hero-card .c{color:#5c7091}
+.hero-card .dot{background:var(--dark-line)}
+
+/* ---------- Sections ---------- */
+section{padding:96px 0}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.5rem);
+  font-weight:700;letter-spacing:-.01em;margin-bottom:2.6rem;
+}
+.about{background:var(--panel-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start}
+.profile-image{
+  width:200px;height:200px;border-radius:var(--radius);
+  border:1px solid var(--line);overflow:hidden;background:var(--panel);
+  position:sticky;top:110px;
+}
+.profile-image img{width:100%;height:100%;object-fit:cover}
+.about p{color:var(--muted);margin-bottom:1.15rem;max-width:62ch}
+.about p strong{color:var(--text);font-weight:600}
+.about blockquote{
+  font-family:var(--font-display);font-size:1.15rem;color:var(--text);
+  border-left:3px solid var(--cyan);padding-left:1.1rem;margin:0 0 1.6rem;
+}
+.about blockquote cite{display:block;font-size:.82rem;color:var(--muted);font-style:normal;margin-top:.4rem;font-family:var(--font-mono)}
+
+/* ---------- Projects ---------- */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.6rem}
+.project-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8rem;display:flex;flex-direction:column;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.project-card:hover{
+  transform:translateY(-5px);border-color:var(--cyan-dim);
+  box-shadow:0 18px 44px rgba(0,0,0,.35);
+}
+.project-card.featured{
+  grid-column:1 / -1;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;
+  border-color:rgba(84,224,199,.35);
+  background:linear-gradient(140deg,var(--panel) 60%,rgba(84,224,199,.05));
+}
+.badge{
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
+  color:var(--ink);background:var(--cyan);border-radius:6px;
+  padding:.22rem .55rem;display:inline-block;margin-bottom:.9rem;width:max-content;
+}
+.badge.live{background:var(--amber)}
+.project-card h3{
+  font-family:var(--font-display);font-size:1.35rem;font-weight:600;margin-bottom:.7rem;
+}
+.project-description{color:var(--muted);margin-bottom:1.2rem;font-size:.96rem}
+.project-details h4{
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--cyan);margin:1rem 0 .5rem;
+}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tags span{
+  font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:6px;padding:.22rem .55rem;
+}
+.project-details ul{list-style:none;margin-top:.2rem}
+.project-details li{
+  color:var(--muted);font-size:.92rem;margin-bottom:.4rem;padding-left:1.1rem;position:relative;
+}
+.project-details li::before{content:'▸';color:var(--cyan);position:absolute;left:0}
+.project-links{margin-top:auto;padding-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap}
+.project-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.55rem 1.05rem;border-radius:8px;text-decoration:none;
+  font-size:.88rem;font-weight:600;transition:all .2s ease;
+}
+.project-link.gh{border:1px solid var(--line);color:var(--text)}
+.project-link.gh:hover{border-color:var(--cyan-dim);color:var(--cyan)}
+.project-link.demo{background:var(--cyan);color:var(--ink)}
+.project-link.demo:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(84,224,199,.25)}
+.featured-right{
+  background:var(--dark-panel);border:1px solid var(--dark-line);border-radius:10px;
+  padding:1.2rem;font-family:var(--font-mono);font-size:.76rem;color:#93a4bd;
+  align-self:center;line-height:2;overflow-x:auto;
+}
+.featured-right .k{color:#54e0c7}
+.featured-right .a{color:#f6b73c}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--panel-2);border-top:1px solid var(--line);text-align:center}
+.contact p{color:var(--muted);max-width:38rem;margin:0 auto 2.2rem}
+.contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+footer{
+  border-top:1px solid var(--line);padding:1.6rem 0;text-align:center;
+  font-family:var(--font-mono);font-size:.78rem;color:var(--muted);
+}
+
+/* ---------- Companion bot ---------- */
+#bot{
+  position:fixed;left:0;top:0;z-index:1200;width:56px;height:66px;
+  pointer-events:none;will-change:transform;
+}
+#bot svg{width:56px;height:66px;overflow:visible;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+#bot .pupil{transition:transform .12s ease-out}
+#bot .lid{transform-origin:center;transform:scaleY(0);transition:transform .09s ease}
+#bot.blinking .lid{transform:scaleY(1)}
+#bot .antenna-tip{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+#bot .body-group{animation:hover 3.4s ease-in-out infinite}
+@keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+#bot-bubble{
+  position:absolute;bottom:100%;left:50%;transform:translate(-50%,-6px) scale(.9);
+  background:var(--panel);border:1px solid var(--cyan-dim);border-radius:10px;
+  padding:.5rem .75rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text);
+  width:max-content;max-width:210px;opacity:0;transition:opacity .25s ease,transform .25s ease;
+  pointer-events:none;line-height:1.5;
+}
+#bot-bubble::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--cyan-dim);
+}
+#bot.talking #bot-bubble{opacity:1;transform:translate(-50%,-12px) scale(1)}
+#bot.docked{pointer-events:auto;cursor:pointer}
+@media (prefers-reduced-motion:reduce){
+  #bot .body-group,#bot .antenna-tip{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Enhancements ---------- */
+/* scroll-reveal: elements start slightly low + transparent, ease in when visible */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* faint engineering dot-grid behind the hero */
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(84,224,199,.14) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(700px 480px at 30% 40%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(700px 480px at 30% 40%,#000 20%,transparent 75%);
+}
+.hero-grid{z-index:1}
+
+/* active nav link tracks the section in view */
+.nav-links a.active{color:var(--cyan)}
+.nav-links a.active::after{content:'';display:block;height:2px;background:var(--cyan);border-radius:2px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .profile-image{position:static;margin-bottom:.5rem}
+  .project-card.featured{grid-template-columns:1fr}
+  .featured-right{display:none}
+}
+@media (max-width:720px){
+  .nav-links{
+    display:none;position:absolute;top:100%;right:0;left:0;
+    background:var(--panel);border-bottom:1px solid var(--line);
+    flex-direction:column;padding:1rem 24px;gap:1rem;align-items:flex-start;
+  }
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  section{padding:72px 0}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Rami Assaf</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <img src="mypicture.jpg" alt="Rami Assaf">
-                </div>
-                <h1>AI Engineer | ML / DL / GenAI</h1>
-                <p>From data chaos to business clarity</p>
-                <a href="mailto:assaframi99@gmail.com" class="cta-button">📧 Contact Me</a>
-            </div>
-        </div>
-    </section>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home"><b>~/</b>rami-assaf</a>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="about" class="about">
-       <div class="container">
-    <h2>About Me</h2>
-    <p>
-        “Without data, you're just another person with an opinion.” – W. Edwards Deming.<br><br>
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">// AI Engineer — ML · DL · GenAI</span>
+      <h1>I build AI systems that <span class="accent">ship</span>, not just demos.</h1>
+      <p class="tagline"><span id="typed"></span><span class="cursor"></span></p>
+      <p class="sub">From data chaos to business clarity — end-to-end LLM systems, RAG pipelines, and multi-agent architectures, taken all the way from ingestion to deployment.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="mailto:assaframi99@gmail.com" class="btn btn-ghost">📧 Contact me</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+<pre><span class="c"># pipeline status</span>
+<span class="k">ingest</span>   → rss + scraping     <span class="s">✓</span>
+<span class="k">retrieve</span> → embeddings + rank  <span class="s">✓</span>
+<span class="k">reason</span>   → agents + tools     <span class="s">✓</span>
+<span class="k">deploy</span>   → docker + cloud     <span class="s">✓</span>
 
-        I build end-to-end AI systems that turn messy data into reliable, deployable intelligence.<br><br>
+<span class="c"># status: live in production</span></pre>
+    </div>
+  </div>
+</section>
 
-        I am an AI Engineer with a strong foundation in Data Science and Machine Learning, focused on solving real business problems through production-ready AI solutions. My work spans the full lifecycle from data and modeling to deployment and iteration with an emphasis on measurable impact.
-        <br><br>
-
-        I have built and delivered applied projects including recommendation systems, supervised machine learning models, computer vision applications, and analytics solutions. My first freelance project involved developing a personalized recommendation system for a multi-salon beauty business, improving customer engagement and service discovery.
-        <br><br>
-
-        My recent work centers on Generative AI and Large Language Models (LLMs). I have designed and implemented systems using Retrieval-Augmented Generation (RAG), AI agents, document understanding pipelines, and an AI Travel Assistant built with modern LLM frameworks. These projects cover data ingestion, embeddings, orchestration, Docker-based deployment, and cloud infrastructure.
-        <br><br>
-
-        I continuously deepen my expertise in LLM systems, prompt engineering, vector databases, and scalable AI architectures. I enjoy building practical AI systems and refining them under real-world constraints such as cost, latency, and reliability.
-        <br><br>
-
-        I am open to opportunities in AI Engineering, Machine Learning, and Applied Generative AI, and I’m always interested in collaborating on impactful, real-world projects.
-    </p>
-</div>
+<section id="about" class="about">
+  <div class="container">
+    <span class="eyebrow">// about me</span>
+    <h2 class="section-title">About</h2>
+    <div class="about-grid">
+      <div class="profile-image"><img src="mypicture.jpg" alt="Rami Assaf"></div>
+      <div>
+        <blockquote>
+          “Without data, you're just another person with an opinion.”
+          <cite>— W. Edwards Deming</cite>
+        </blockquote>
+        <p><strong>From messy data to a URL you can visit. That's the job.</strong></p>
+        <p>I'm an AI Engineer who builds LLM, RAG, agentic AI, and recommendation systems end-to-end: data preparation, retrieval, orchestration, and deployment. The proof runs live on this page. My AI Investment Agent is a working product with a public API, Currently I'm building a hybrid recommendation system that serves real users.</p>
+        <p>I work in Python across vector search, hybrid retrieval, prompt engineering, and machine learning, and I've applied that toolkit to investment research, travel planning, resume screening, and predictive modeling. Every project was built under real constraints: latency, cost, and reliability.</p>
+        <p>The field moves fast and I move with it. Whatever I learn, I put into a system that ships, because a technique I can't deploy is a technique I don't know yet.</p>
+        <p>Before engineering, I worked in sales. It shows in everything I build: I design systems around the business problem, and I can explain the architecture to a CTO or a client without hiding behind jargon.</p>
+        <p>I'm open to AI Engineering and Applied GenAI roles. If you want someone who ships, scroll down.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
+  <div class="container">
+    <span class="eyebrow">// featured work</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
 
-            <!-- Project 1: AI Travel Assistant -->
-            <div class="project-card">
-                <h3>AI Travel Assistant</h3>
-                <p class="project-description">
-                    An end-to-end agentic AI system that generates personalized travel itineraries using
-                    multi-agent orchestration, deployed as a cloud-ready web application.
-                </p>
-                <div class="project-details">
-                    <h4>Tech Stack:</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>CrewAI (Agents & Tasks)</li>
-                        <li>Streamlit</li>
-                        <li>Docker</li>
-                        <li>AWS EC2</li>
-                        <li>LLM API Integration</li>
-                    </ul>
-                    <h4>Main Objective:</h4>
-                    <ul>
-                        <li>Collect user preferences and generate structured travel plans.</li>
-                        <li>Coordinate multiple AI agents for flights, hotels, and itineraries.</li>
-                        <li>Deploy a scalable, shareable AI product using Docker and cloud infrastructure.</li>
-                    </ul>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/ai-travel-assistant" target="_blank" class="project-link">GitHub</a>
-                </div>
+      <!-- Featured: AI Investment Agent -->
+      <div class="project-card featured" data-bot="This one's live — the bias engine decides before the LLM speaks. Try the demo.">
+        <div style="display:flex;flex-direction:column">
+          <span class="badge live">DEPLOYED · LIVE</span>
+          <h3>AI Investment Agent</h3>
+          <p class="project-description">
+            A market research intelligence system for gold and silver. It ingests financial news from multiple sources, retrieves the most relevant articles with semantic search, classifies each one across market drivers (rates, inflation, geopolitics, USD), computes a directional market bias programmatically — before any LLM involvement — and returns a structured, evidence-backed answer with citations.
+          </p>
+          <div class="project-details">
+            <h4>Tech Stack</h4>
+            <div class="tags">
+              <span>Python</span><span>FastAPI</span><span>Streamlit</span>
+              <span>OpenAI Embeddings</span><span>GPT-4o-mini</span>
+              <span>RSS / NewsAPI / Scraping</span><span>Docker</span><span>Render</span>
             </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3>RAG Resume Assistant</h3>
-                <p class="project-description">
-                    A Retrieval-Augmented Generation (RAG) system that helps recruiters discover the most relevant resumes using semantic search.
-                </p>
-                <div class="project-details">
-                    <h4>Tech Stack:</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>LangChain & ChromaDB</li>
-                        <li>Phi-2</li>
-                        <li>Sentence Transformers</li>
-                        <li>Gradio</li>
-                    </ul>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/rag-resume-assistant" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h3>Predicting Titanic Survivors</h3>
-                <p class="project-description">
-                    A supervised ML project predicting survival probabilities using structured passenger data.
-                </p>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/-Predicting-Titanic-Survivors" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <h3>Unsupervised Fraud Detection</h3>
-                <p class="project-description">
-                    Detecting anomalous transactions using unsupervised learning on highly imbalanced datasets.
-                </p>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/Unsupervised-Fraud-detection" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card">
-                <h3>Pneumonia Detection from Chest X-Rays</h3>
-                <p class="project-description">
-                    A CNN-based deep learning model for medical image classification using chest X-rays.
-                </p>
-                <div class="project-links">
-                    <a href="https://github.com/Ramiassaf/CHESTXRAYPROJECT" target="_blank" class="project-link">GitHub</a>
-                </div>
-            </div>
-
+            <h4>Main Objective</h4>
+            <ul>
+              <li>Automate multi-source financial news ingestion with deduplication and standardized records.</li>
+              <li>Compute market bias with weighted, multi-label driver classification — the LLM explains the bias, it never derives it, which eliminates hallucinated conclusions.</li>
+              <li>Serve the pipeline as a real product: REST API + UI, two isolated Docker images, deployed to the cloud.</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://ai-investment-agent-1.onrender.com" target="_blank" rel="noopener" class="project-link demo">🖥️ Live Demo</a>
+            <a href="https://ai-investment-agent-mw67.onrender.com/docs" target="_blank" rel="noopener" class="project-link gh">⚡ API Docs</a>
+            <a href="https://github.com/Ramiassaf/ai-investment-agent" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+          </div>
         </div>
+        <div class="featured-right" aria-hidden="true">
+<span class="k">POST</span> /ask
+{
+  "question": "How are rate hikes
+               affecting gold?"
+}
+→
+{
+  "gold_bias":   <span class="a">"negative"</span>,
+  "silver_bias": <span class="a">"negative"</span>,
+  "answer": "Interest rate hikes are
+  negatively impacting gold prices..."
+}
+        </div>
+      </div>
+
+      <!-- AI Travel Assistant -->
+      <div class="project-card" data-bot="Three agents plan your trip — flights, hotels, itinerary — and argue it out so you don't have to.">
+        <span class="badge">MULTI-AGENT</span>
+        <h3>AI Travel Assistant</h3>
+        <p class="project-description">
+          An end-to-end agentic AI system that generates personalized travel itineraries using multi-agent orchestration, deployed as a cloud-ready web application.
+        </p>
+        <div class="project-details">
+          <h4>Tech Stack</h4>
+          <div class="tags">
+            <span>Python</span><span>CrewAI</span><span>Streamlit</span>
+            <span>Docker</span><span>AWS EC2</span><span>LLM APIs</span>
+          </div>
+          <h4>Main Objective</h4>
+          <ul>
+            <li>Collect user preferences and generate structured travel plans.</li>
+            <li>Coordinate multiple AI agents for flights, hotels, and itineraries.</li>
+            <li>Deploy a scalable, shareable AI product using Docker and cloud infrastructure.</li>
+          </ul>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Ramiassaf/ai-travel-assistant" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- RAG Resume Assistant -->
+      <div class="project-card" data-bot="Semantic search over resumes — recruiters match by meaning, not keywords.">
+        <span class="badge">RAG</span>
+        <h3>RAG Resume Assistant</h3>
+        <p class="project-description">
+          A Retrieval-Augmented Generation system that helps recruiters discover the most relevant resumes using semantic search.
+        </p>
+        <div class="project-details">
+          <h4>Tech Stack</h4>
+          <div class="tags">
+            <span>Python</span><span>LangChain</span><span>ChromaDB</span>
+            <span>Phi-2</span><span>Sentence Transformers</span><span>Gradio</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Ramiassaf/rag-resume-assistant" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Pneumonia Detection -->
+      <div class="project-card" data-bot="A CNN reading chest X-rays. Deep learning fundamentals, applied where it matters.">
+        <span class="badge">DEEP LEARNING</span>
+        <h3>Pneumonia Detection from Chest X-Rays</h3>
+        <p class="project-description">
+          A CNN-based deep learning model for medical image classification using chest X-rays.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/Ramiassaf/CHESTXRAYPROJECT" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Fraud Detection -->
+      <div class="project-card" data-bot="Fraud detection with no labels and brutal class imbalance. Anomalies don't hide well here.">
+        <span class="badge">UNSUPERVISED ML</span>
+        <h3>Unsupervised Fraud Detection</h3>
+        <p class="project-description">
+          Detecting anomalous transactions using unsupervised learning on highly imbalanced datasets.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/Ramiassaf/Unsupervised-Fraud-detection" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Titanic -->
+      <div class="project-card" data-bot="The classic starting point. The difference is everything he built after it.">
+        <span class="badge">SUPERVISED ML</span>
+        <h3>Predicting Titanic Survivors</h3>
+        <p class="project-description">
+          A supervised ML project predicting survival probabilities using structured passenger data.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/Ramiassaf/-Predicting-Titanic-Survivors" target="_blank" rel="noopener" class="project-link gh">GitHub →</a>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
 <section id="contact" class="contact">
-    <div class="container">
-        <h2>Let's Work Together</h2>
-        <p>I'm always open to AI engineering, machine learning, and generative AI opportunities.</p>
-        <a href="mailto:assaframi99@gmail.com" class="contact-cta">📧 Get In Touch</a>
-        <a href="https://github.com/Ramiassaf" target="_blank" class="contact-cta">GitHub</a>
-        <a href="https://www.linkedin.com/in/rami--assaf" target="_blank" class="contact-cta">LinkedIn</a>
+  <div class="container">
+    <span class="eyebrow">// get in touch</span>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p>I'm always open to AI engineering, machine learning, and generative AI opportunities.</p>
+    <div class="contact-actions">
+      <a href="mailto:assaframi99@gmail.com" class="btn btn-primary">📧 Email me</a>
+      <a href="https://github.com/Ramiassaf" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="https://www.linkedin.com/in/rami--assaf" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
     </div>
+  </div>
 </section>
 
+<footer>
+  <div class="container">rami assaf · built end-to-end, like everything else</div>
+</footer>
+
+<!-- ================= AI Companion Bot ================= -->
+<div id="bot" aria-hidden="true">
+  <div id="bot-bubble"></div>
+  <svg viewBox="0 0 74 88" width="56" height="66" xmlns="http://www.w3.org/2000/svg">
+    <g class="body-group">
+      <!-- antenna -->
+      <line x1="37" y1="14" x2="37" y2="4" stroke="#54e0c7" stroke-width="2.5" stroke-linecap="round"/>
+      <circle class="antenna-tip" cx="37" cy="4" r="3.5" fill="#f6b73c"/>
+      <!-- head -->
+      <rect x="12" y="14" width="50" height="40" rx="12" fill="#101a2e" stroke="#54e0c7" stroke-width="2"/>
+      <!-- face screen (dark so the eyes glow) -->
+      <rect x="18" y="21" width="38" height="26" rx="8" fill="#0a1120"/>
+      <!-- eyes -->
+      <g class="eye">
+        <circle cx="29" cy="34" r="5.5" fill="#0d1526" stroke="#1d2b45" stroke-width="1"/>
+        <circle class="pupil" cx="29" cy="34" r="3" fill="#54e0c7"/>
+        <rect class="lid" x="23" y="28" width="12" height="12" rx="6" fill="#0a1120"/>
+      </g>
+      <g class="eye">
+        <circle cx="45" cy="34" r="5.5" fill="#0d1526" stroke="#1d2b45" stroke-width="1"/>
+        <circle class="pupil" cx="45" cy="34" r="3" fill="#54e0c7"/>
+        <rect class="lid" x="39" y="28" width="12" height="12" rx="6" fill="#0a1120"/>
+      </g>
+      <!-- body -->
+      <rect x="22" y="58" width="30" height="20" rx="8" fill="#101a2e" stroke="#54e0c7" stroke-width="2"/>
+      <circle cx="37" cy="68" r="4" fill="#f6b73c" opacity=".85"/>
+    </g>
+  </svg>
+</div>
+
+<script>
+(function(){
+  /* ---------- typing effect ---------- */
+  const phrases = [
+    "RAG pipelines & agentic systems",
+    "LangGraph · CrewAI · FastAPI · Docker",
+    "from ingestion → deployment",
+    "production-ready, not just notebooks",
+    "Problem → Idea → Planning → Ececute → Monitoring → Solution"
+  ];
+  const typedEl = document.getElementById('typed');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    typedEl.textContent = phrases[0];
+  } else {
+    let pi = 0, ci = 0, deleting = false;
+    (function type(){
+      const p = phrases[pi];
+      typedEl.textContent = p.slice(0, ci);
+      if (!deleting && ci < p.length) { ci++; setTimeout(type, 55); }
+      else if (!deleting) { deleting = true; setTimeout(type, 1800); }
+      else if (ci > 0) { ci--; setTimeout(type, 28); }
+      else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 350); }
+    })();
+  }
+
+  /* ---------- companion bot ---------- */
+  const bot = document.getElementById('bot');
+  const bubble = document.getElementById('bot-bubble');
+  const pupils = bot.querySelectorAll('.pupil');
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  // position state
+  let mouseX = window.innerWidth * 0.8, mouseY = window.innerHeight * 0.5;
+  let botX = mouseX, botY = mouseY;
+  const OFFSET_X = 38, OFFSET_Y = 26; // trail below-right of cursor
+
+  function dock(){
+    bot.classList.add('docked');
+    bot.style.transform = '';
+    bot.style.left = 'auto';
+    bot.style.right = '18px';
+    bot.style.top = 'auto';
+    bot.style.bottom = '18px';
+  }
+
+  if (isTouch || reduceMotion) {
+    dock();
+  } else {
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    (function follow(){
+      // lerp: move 8% of the remaining distance each frame → smooth trailing
+      botX += (mouseX + OFFSET_X - botX) * 0.08;
+      botY += (mouseY + OFFSET_Y - botY) * 0.08;
+      bot.style.transform = `translate(${botX}px, ${botY}px)`;
+
+      // pupils look toward the cursor (bot renders at 56x66, so its
+      // on-screen eye center sits near x+28, y+26 — not the old 74px coords)
+      const dx = mouseX - (botX + 28), dy = mouseY - (botY + 26);
+      const dist = Math.hypot(dx, dy) || 1;
+      const px = (dx / dist) * 2, py = (dy / dist) * 2;
+      pupils.forEach(p => p.style.transform = `translate(${px}px, ${py}px)`);
+
+      requestAnimationFrame(follow);
+    })();
+  }
+
+  // blinking
+  if (!reduceMotion) {
+    setInterval(() => {
+      bot.classList.add('blinking');
+      setTimeout(() => bot.classList.remove('blinking'), 140);
+    }, 3200 + Math.random() * 2000);
+  }
+
+  // speech
+  let bubbleTimer;
+  function say(text, ms = 4200){
+    bubble.textContent = text;
+    bot.classList.add('talking');
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(() => bot.classList.remove('talking'), ms);
+  }
+
+  const sectionLines = {
+    home: "Hi! I'm Rami's AI sidekick 🤖 Scroll down — I'll show you around.",
+    about: "A FACT : He's been building Machine Learning and AI systems since 2019 — LLMs, RAG, agents, and production deployment..",
+    projects: "Real API, real data, real cloud — not a notebook screenshot. Try the demo.",
+    contact: "Recruiter? This is the section you want. He replies fast."
+  };
+  const spoken = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting && !spoken.has(en.target.id)) {
+        spoken.add(en.target.id);
+        say(sectionLines[en.target.id]);
+      }
+    });
+  }, { threshold: 0.35 });
+  ['home','about','projects','contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // greet on load
+  setTimeout(() => say(sectionLines.home, 5000), 900);
+
+  // docked (mobile) — tap to cycle tips
+  const tips = Object.values(sectionLines);
+  let tipIndex = 0;
+  bot.addEventListener('click', () => {
+    if (bot.classList.contains('docked')) {
+      say(tips[tipIndex % tips.length]);
+      tipIndex++;
+    }
+  });
+
+  // close mobile menu on link click
+  document.querySelectorAll('#navLinks a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  /* ---------- per-project bot reactions ---------- */
+  // Each card carries its own line in data-bot; one listener wires them all.
+  // Hover only exists on pointer devices, so touch/docked mode skips this.
+  if (!isTouch) {
+    document.querySelectorAll('.project-card[data-bot]').forEach(card => {
+      card.addEventListener('mouseenter', () => say(card.dataset.bot, 3600));
+    });
+  }
+
+  /* ---------- scroll reveal ---------- */
+  // Tag the things worth revealing, then let one observer handle all of them.
+  document.querySelectorAll('.project-card, .section-title, .about-grid, .contact-actions')
+    .forEach(el => el.classList.add('reveal'));
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        revealObs.unobserve(en.target); // reveal once, then stop watching — cheaper
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ---------- active nav highlight ---------- */
+  const navMap = {};
+  document.querySelectorAll('#navLinks a[href^="#"]').forEach(a => {
+    navMap[a.getAttribute('href').slice(1)] = a;
+  });
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting && navMap[en.target.id]) {
+        Object.values(navMap).forEach(a => a.classList.remove('active'));
+        navMap[en.target.id].classList.add('active');
+      }
+    });
+  }, { threshold: 0.45 });
+  ['home','about','projects','contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) navObs.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
